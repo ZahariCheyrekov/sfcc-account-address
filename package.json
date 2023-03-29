@@ -114,16 +114,13 @@
     "last 2 versions",
     "ie >= 10"
   ],
-  "packageName": "app_storefront_base",
+  "packageName": "plugin_account_address",
+  "paths": {
+    "base": "./cartridges/app_storefront_base/"
+  },
   "babel": {
     "presets": [
       "env"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
-    }
   }
 }
