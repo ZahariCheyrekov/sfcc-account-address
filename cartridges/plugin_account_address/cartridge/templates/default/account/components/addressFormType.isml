@@ -1,0 +1,16 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/addressFormType.js');
+</isscript>
+
+<div class="address-type-wrapper mb-5 border-bottom">
+    <input class="js-form-radion-button" type="radio" id="privateAddress" name="pravateAddress" value="Private Address" checked>
+    <label for="privateAddress">
+        ${Resource.msg('label.name.private.address', 'addressForm', null)}
+    </label>
+
+    <input  class="js-form-radion-button ml-5" type="radio" id="businessAddress" name="pravateAddress" value="Business Address" class="ml-5">
+    <label for="businessAddress">
+        ${Resource.msg('label.name.business.address', 'addressForm', null)}
+    </label>
+</div>
