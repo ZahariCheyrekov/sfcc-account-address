@@ -49,9 +49,6 @@
             </a>
         </div>
     </div>
-    <div>
-
-    </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
