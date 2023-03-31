@@ -4,10 +4,10 @@
  * @namespace Account
  */
 
-var server = require('server');
+const server = require('server');
 server.extend(module.superModule);
 
-var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+const csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 /**
  * Account-SubmitRegistration : The Account-SubmitRegistration endpoint is the endpoint that gets hit when a shopper submits their registration for a new account
@@ -29,19 +29,19 @@ server.replace(
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
-        var CustomerMgr = require('dw/customer/CustomerMgr');
-        var Resource = require('dw/web/Resource');
+        const CustomerMgr = require('dw/customer/CustomerMgr');
+        const Resource = require('dw/web/Resource');
 
-        var formErrors = require('*/cartridge/scripts/formErrors');
+        const formErrors = require('*/cartridge/scripts/formErrors');
 
-        var registrationForm = server.forms.getForm('profile');
+        const registrationForm = server.forms.getForm('profile');
 
         if (!CustomerMgr.isAcceptablePassword(registrationForm.login.password.value)) {
             registrationForm.login.password.valid = false;
             registrationForm.valid = false;
         }
 
-        var registrationFormObj = {
+        const registrationFormObj = {
             email: registrationForm.customer.email.value,
             password: registrationForm.login.password.value,
             validForm: registrationForm.valid,
@@ -52,23 +52,23 @@ server.replace(
             res.setViewData(registrationFormObj);
 
             this.on('route:BeforeComplete', function (req, res) {
-                var Transaction = require('dw/system/Transaction');
-                var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
-                var authenticatedCustomer;
-                var serverError;
+                const Transaction = require('dw/system/Transaction');
+                const accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+                let authenticatedCustomer;
+                let serverError;
 
-                var registrationForm = res.getViewData();
+                const registrationForm = res.getViewData();
 
                 if (registrationForm.validForm) {
-                    var login = registrationForm.email;
-                    var password = registrationForm.password;
+                    const login = registrationForm.email;
+                    const password = registrationForm.password;
 
                     try {
                         Transaction.wrap(function () {
-                            var error = {};
-                            var newCustomer = CustomerMgr.createCustomer(login, password);
+                            const error = {};
+                            const newCustomer = CustomerMgr.createCustomer(login, password);
 
-                            var authenticateCustomerResult = CustomerMgr.authenticateCustomer(
+                            const authenticateCustomerResult = CustomerMgr.authenticateCustomer(
                                 login,
                                 password
                             );
@@ -93,7 +93,7 @@ server.replace(
                                 throw error;
 
                             } else {
-                                var newCustomerProfile = newCustomer.getProfile();
+                                const newCustomerProfile = newCustomer.getProfile();
                                 newCustomerProfile.email = registrationForm.email;
                             }
                         });
@@ -130,7 +130,7 @@ server.replace(
                 }
 
                 if (registrationForm.validForm) {
-                    accountHelpers.sendCreateAccountEmail(authenticatedCustomer |.profile);
+                    accountHelpers.sendCreateAccountEmail(authenticatedCustomer.profile);
 
                     res.setViewData({ authenticatedCustomer: authenticatedCustomer });
                     res.json({
