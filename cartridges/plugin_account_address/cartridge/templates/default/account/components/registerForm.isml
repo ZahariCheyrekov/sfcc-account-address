@@ -1,4 +1,5 @@
-<form action="${pdict.createAccountUrl}" class="registration" method="POST" name="${pdict.profileForm.htmlName}">
+<form action="${pdict.createAccountUrl}" class="registration js-registration" method="POST"
+    name="${pdict.profileForm.htmlName}">
     <div class="form-group
         <isif condition=" ${!!pdict.profileForm.customer.email.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-email">
@@ -37,7 +38,9 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
-    <button type="submit" class="btn btn-block btn-primary">
+    <button type="submit" class="g-recaptcha js-registration-submit btn btn-block btn-primary"
+        data-sitekey="${pdict.reCaptcha.siteKey || ''}" data-callback='verifyReCaptcha' data-action='submit'
+        data-verify-url="${pdict.reCaptcha.verifyUrl || ''}">
         ${Resource.msg('button.createaccount.registration', 'registration', null)}
     </button>
     <div class="privacy-policy">
@@ -47,3 +50,7 @@
         </a>
     </div>
 </form>
+
+<isif condition="${pdict.reCaptcha}">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</isif>
