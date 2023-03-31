@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="OrderAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="vat">
+                <display-name xml:lang="x-default">VAT</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
+                <attribute attribute-id="vat"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="vat">
+                <display-name xml:lang="x-default">VAT</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard Address</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="title" system="true"/>
+                <attribute attribute-id="companyName" system="true"/>
+                <attribute attribute-id="salutation" system="true"/>
+                <attribute attribute-id="firstName" system="true"/>
+                <attribute attribute-id="secondName" system="true"/>
+                <attribute attribute-id="lastName" system="true"/>
+                <attribute attribute-id="suffix" system="true"/>
+                <attribute attribute-id="address1" system="true"/>
+                <attribute attribute-id="address2" system="true"/>
+                <attribute attribute-id="suite" system="true"/>
+                <attribute attribute-id="postBox" system="true"/>
+                <attribute attribute-id="city" system="true"/>
+                <attribute attribute-id="postalCode" system="true"/>
+                <attribute attribute-id="countryCode" system="true"/>
+                <attribute attribute-id="stateCode" system="true"/>
+                <attribute attribute-id="phone" system="true"/>
+                <attribute attribute-id="vat"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+           <attribute-definition attribute-id="reCaptchaSecretKey">
+               <display-name xml:lang="x-default">reCaptcha Secret Key</display-name>
+               <type>string</type>
+               <mandatory-flag>false</mandatory-flag>
+               <externally-managed-flag>false</externally-managed-flag>
+               <min-length>0</min-length>
+           </attribute-definition>
+           <attribute-definition attribute-id="reCaptchaSiteKey">
+               <display-name xml:lang="x-default">reCAPTCHA Site Key</display-name>
+               <type>string</type>
+               <mandatory-flag>false</mandatory-flag>
+               <externally-managed-flag>false</externally-managed-flag>
+               <min-length>0</min-length>
+           </attribute-definition>
+           <attribute-definition attribute-id="reCaptchaThreshold">
+               <display-name xml:lang="x-default">reCaptcha Threshold</display-name>
+               <type>double</type>
+               <mandatory-flag>false</mandatory-flag>
+               <externally-managed-flag>false</externally-managed-flag>
+               <min-value>0.0</min-value>
+               <max-value>1.0</max-value>
+               <default-value>0.5</default-value>
+           </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="reCAPTCHA AccountAddress">
+                <display-name xml:lang="x-default">reCAPTCHA AccountAddress</display-name>
+                <attribute attribute-id="reCaptchaThreshold"/>
+                <attribute attribute-id="reCaptchaSecretKey"/>
+                <attribute attribute-id="reCaptchaSiteKey"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>
